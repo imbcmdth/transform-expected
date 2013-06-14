@@ -1,0 +1,21 @@
+{
+	"name": "transform-expected",
+	"version": "0.0.1",
+	"description": "Conditionally apply a stream transform and pass-through objects or buffers that do not meet our expectation.",
+	"keywords": [
+		"expect",
+		"stream",
+		"transform",
+		"duplex",
+		"passthrough"
+	],
+	"author": {
+		"name": "Jon-Carlos Rivera",
+		"email": "jon.carlos.rivera@gmail.com",
+		"url": "http://jon-carlos.com"
+	},
+	"license" : "MIT",
+	"engine": {
+		"node": ">=0.10"
+	}
+}
