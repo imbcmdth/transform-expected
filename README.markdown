@@ -4,6 +4,8 @@ Apply a stream transformation to objects that meet some `expectation` and pass o
 
 **Note**: I have only used this for streams with `objectMode` set to `true` and the expectation functions are currently geared for that particular use-case. This probably won't work as-is on Buffer or string-based streams.
 
+[![browser support](https://ci.testling.com/imbcmdth/transform-expected.png)](https://ci.testling.com/imbcmdth/transform-expected)
+
 ## Installation
 
 ### Node.js
@@ -80,13 +82,27 @@ Note: **This function MUST NOT be called directly.** It should be implemented by
 
 All `expectations` are properties of the object `TransformExpected.expect`.
 
-### expectations.hasProperty(propertyName)
+### expect.any
+
+Always returns true.
+
+### expect.none
+
+Always returns false.
+
+### expect.equals(value)
+
+* `value` any JavaScript value
+
+Returns an expectation function that returns true if the stream is equal to `value`.
+
+### expect.hasProperty(propertyName)
 
 * `propertyName` String
 
 Returns an expectation function that returns true if `propertyName` was found inside of the current stream.
 
-### expectations.withProperty(propertyName, expectation)
+### expect.withProperty(propertyName, expectation)
 
 * `propertyName` String
 
@@ -94,7 +110,7 @@ Returns an expectation function that returns true if `propertyName` was found in
 
 Returns an expectation function that returns true if `propertyName` was found inside of the current stream and the expectation function evaluates to true when called against the value of property referred to in `propertyName`.
 
-### expectations.propertyEquals(propertyName, value)
+### expect.propertyEquals(propertyName, value)
 
 * `propertyName` String
 
@@ -102,29 +118,31 @@ Returns an expectation function that returns true if `propertyName` was found in
 
 Returns an expectation function that returns true if `propertyName` was found inside of the current stream and is equal to `value`.
 
-### expectations.typeOf(typeOf)
+### expect.typeOf(typeOf)
 
 * `typeOf` String
 
 Returns an expectation function that returns true if the stream is of type `typeOf`.
 
-### expectations.not(expectation)
+### expect.not(expectation)
 
 * `expectation` Function
 
 Returns an expectation function that returns true if the expectation function evaluates to false.
 
-### expectations.every(expectation_1, expectation_2, ... expectation_N)
+## Expectation Iterators
+
+### expect.every(expectation_1, expectation_2, ... expectation_N)
 
 * `expectation` Functions
 
-Returns an expectation function that returns true if all the expectation functions evaluate to true.
+Returns an expectation function that returns true if **all** the expectation functions evaluate to true.
 
-### expectations.some(expectation_1, expectation_2, ... expectation_N)
+### expect.some(expectation_1, expectation_2, ... expectation_N)
 
 * `expectation` Functions
 
-Returns an expectation function that returns true if any of the expectation functions evaluate to true.
+Returns an expectation function that returns true if *any* of the expectation functions evaluate to true.
 
 ## License - MIT
 
