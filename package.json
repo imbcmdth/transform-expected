@@ -1,30 +1,61 @@
 {
-	"name": "transform-expected",
-	"version": "0.0.3",
-	"description": "Conditionally apply a stream transform or pass-through any objects that do not meet our expectations.",
-	"keywords": [
-		"expect",
-		"objectMode",
-		"stream",
-		"transform",
-		"duplex",
-		"passthrough"
-	],
-	"dependencies": {
-		"jstype": ">=0.0.5"
-	},
-	"main": "lib/index.js",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/imbcmdth/transform-expected.git"
-	},
-	"author": {
-		"name": "Jon-Carlos Rivera",
-		"email": "jon.carlos.rivera@gmail.com",
-		"url": "http://jon-carlos.com"
-	},
-	"license" : "MIT",
-	"engine": {
-		"node": ">=0.10.x"
-	}
+  "name": "transform-expected",
+  "version": "0.1.0",
+  "description": "Conditionally apply a stream transform or pass-through any objects that do not meet our expectations.",
+  "keywords": [
+    "expect",
+    "expectations",
+    "conditional",
+    "conditionally",
+    "objectMode",
+    "stream",
+    "streams",
+    "transform",
+    "duplex",
+    "passthrough"
+  ],
+  "dependencies": {
+    "jstype": ">=0.0.5"
+  },
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imbcmdth/transform-expected.git"
+  },
+  "devDependencies": {
+    "mocha":  ">=1.8.1"
+  },
+  "author": {
+    "name": "Jon-Carlos Rivera",
+    "email": "jon.carlos.rivera@gmail.com",
+    "url": "http://jon-carlos.com"
+  },
+  "testling": {
+    "files": "test/*-test.js",
+    "browsers": [
+      "iexplore/9.0",
+      "iexplore/10.0",
+      "chrome/5.0",
+      "chrome/23.0",
+      "chrome/canary",
+      "firefox/4.0",
+      "firefox/17.0",
+      "firefox/nightly",
+      "safari/5.0.5",
+      "safari/5.1",
+      "safari/6.0",
+      "opera/12.0",
+      "opera/next",
+      "iphone/6.0",
+      "ipad/6.0"
+    ],
+    "harness": "mocha"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "license" : "MIT",
+  "engine": {
+    "node": ">=0.10.x"
+  }
 }
