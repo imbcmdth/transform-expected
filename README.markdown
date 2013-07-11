@@ -4,6 +4,8 @@ Apply a stream transformation to objects that meet some `expectation` and pass o
 
 **Note**: I have only used this for streams with `objectMode` set to `true` and the expectation functions are currently geared for that particular use-case. This probably won't work as-is on Buffer or string-based streams.
 
+[![Build Status](https://travis-ci.org/imbcmdth/transform-expected.png)](https://travis-ci.org/imbcmdth/transform-expected)
+
 ## Installation
 
 ### Node.js
