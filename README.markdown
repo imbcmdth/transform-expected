@@ -25,25 +25,35 @@ var TransformExpected = require('transform-expected');
 ## Quick Example
 
 ````javascript
-var myTransform = new TransformExpected({ objectMode: true }, TransformExpected.expect.typeOf("string"));
+var expect = TransformExpected.expect;
 
-myTransform._expected = function(str, encoding, done) {
-    this.push(str.toUpperCase());
+var myTransform = new TransformExpected(
+    { objectMode: true },
+    expect.withProperty('val',
+        expect.typeOf('string')));
+
+myTransform._expected = function(obj, encoding, done) {
+    obj.val = obj.val.toUpperCase();
+    this.push(obj);
     done();
 };
 
-myTransform.write({val: "testing"});
+myTransform.write({ val: 12345 });
+myTransform.write({ val: "testing" });
 myTransform.write("testing");
-myTransform.write([1, 2, 3]);
+myTransform.write([ 1, 2, 3 ]);
 ````
 
 Assuming you had `myTransform `piped into another stream, that stream would receive:
 
 ````javascript
-{val:"testing"}
+{ val: 12345 }
+{ val: "TESTING" }
 "TESTING"
-[1, 2, 3]
+[ 1, 2, 3 ]
 ````
+
+As you can see, only the second object passed in meets our expectation *(has property 'val' that is of type 'string')* so only that object is transformed while all other objects pass-through unchanged.
 
 ## API
 
