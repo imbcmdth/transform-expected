@@ -2,7 +2,7 @@
 
 Apply a stream transformation to objects that meet some `expectation` and pass objects that **do not** meet that expectation unchanged.
 
-**Note**: I have only used this for streams with `objectMode` set to `true` and the expectation functions are currently geared for that particular use-case. This probably won't work as-is on Buffer or string-based streams.
+**Note**: I have only used this for streams with `objectMode` set to `true` and the expectation functions are currently geared towards that particular use-case. This probably won't work as-is on Buffer or string-based streams.
 
 [![Build Status](https://travis-ci.org/imbcmdth/transform-expected.png)](https://travis-ci.org/imbcmdth/transform-expected)
 
@@ -49,7 +49,7 @@ Assuming you had `myTransform `piped into another stream, that stream would rece
 ````javascript
 { val: 12345 }
 { val: "TESTING" }
-"TESTING"
+"testing"
 [ 1, 2, 3 ]
 ````
 
