@@ -44,7 +44,7 @@ myTransform.write("testing");
 myTransform.write([ 1, 2, 3 ]);
 ````
 
-Assuming you had `myTransform `piped into another stream, that stream would receive:
+Assuming that you had `myTransform `piped into another stream, then that stream would receive:
 
 ````javascript
 { val: 12345 }
@@ -53,7 +53,7 @@ Assuming you had `myTransform `piped into another stream, that stream would rece
 [ 1, 2, 3 ]
 ````
 
-As you can see, only the second object passed in meets our expectation *(has property 'val' that is of type 'string')* so only that object is transformed while all other objects pass-through unchanged.
+As you can see, only the second object in the stream meets our expectation *(has property 'val' that is of type 'string')* and, as a result, only that object is transformed while all the other objects pass-through unchanged.
 
 ## API
 
