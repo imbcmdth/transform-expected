@@ -1,14 +1,23 @@
 {
 	"name": "transform-expected",
-	"version": "0.0.1",
-	"description": "Conditionally apply a stream transform and pass-through objects or buffers that do not meet our expectation.",
+	"version": "0.0.3",
+	"description": "Conditionally apply a stream transform or pass-through any objects that do not meet our expectations.",
 	"keywords": [
 		"expect",
+		"objectMode",
 		"stream",
 		"transform",
 		"duplex",
 		"passthrough"
 	],
+	"dependencies": {
+		"jstype": ">=0.0.5"
+	},
+	"main": "lib/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/imbcmdth/transform-expected.git"
+	},
 	"author": {
 		"name": "Jon-Carlos Rivera",
 		"email": "jon.carlos.rivera@gmail.com",
@@ -16,6 +25,6 @@
 	},
 	"license" : "MIT",
 	"engine": {
-		"node": ">=0.10"
+		"node": ">=0.10.x"
 	}
 }
