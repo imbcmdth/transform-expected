@@ -1,6 +1,6 @@
 {
   "name": "transform-expected",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Conditionally apply a stream transform or pass-through any objects that do not meet our expectations.",
   "keywords": [
     "expect",
