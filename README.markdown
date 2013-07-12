@@ -100,17 +100,63 @@ Always returns true.
 
 Always returns false.
 
+### expect.not(expectation)
+
+* `expectation` Function
+
+Returns a function that returns true if the `expectation` function evaluates to false and vice versa.
+
 ### expect.equals(value)
 
 * `value` any JavaScript value
 
-Returns an expectation function that returns true if the stream is equal to `value`.
+Returns a function that returns true if it's argument is equal to `value`.
+
+### expect.gt(value)
+
+* `value` any JavaScript value
+
+Returns a function that returns true if it's argument is greater than `value`.
+
+### expect.lt(value)
+
+* `value` any JavaScript value
+
+Returns a function that returns true if it's argument is less than `value`.
+
+### expect.between(start, end)
+
+* `start` any JavaScript value
+
+* `end` any JavaScript value
+
+Returns a function that returns true if it's argument is between `start` and `end` (non-inclusive.)
+
+### expect.range(start, end)
+
+* `start` any JavaScript value
+
+* `end` any JavaScript value
+
+Returns a function that returns true if it's argument is between or equal to `start` and `end` (inclusive.)
+
+### expect.match(regex)
+
+* `regex` a regular expression object
+
+Returns a function that returns true if it's argument passes a `RegExp.test()`.
+
+### expect.typeOf(type)
+
+* `type` String
+
+Returns a function that returns true if it's argument is of type `type`.
 
 ### expect.hasProperty(propertyName)
 
 * `propertyName` String
 
-Returns an expectation function that returns true if `propertyName` was found inside of the current stream.
+Returns a function that returns true if `propertyName` was found inside of it's argument.
 
 ### expect.withProperty(propertyName, expectation)
 
@@ -118,7 +164,7 @@ Returns an expectation function that returns true if `propertyName` was found in
 
 * `expectation` Function
 
-Returns an expectation function that returns true if `propertyName` was found inside of the current stream and the expectation function evaluates to true when called against the value of property referred to in `propertyName`.
+Returns a function that returns true if `propertyName` was found inside of it's argument and the `expectation` function evaluates to true when called against the value of property referred to by `propertyName`.
 
 ### expect.propertyEquals(propertyName, value)
 
@@ -126,19 +172,7 @@ Returns an expectation function that returns true if `propertyName` was found in
 
 * `value` Any JavaScript value
 
-Returns an expectation function that returns true if `propertyName` was found inside of the current stream and is equal to `value`.
-
-### expect.typeOf(typeOf)
-
-* `typeOf` String
-
-Returns an expectation function that returns true if the stream is of type `typeOf`.
-
-### expect.not(expectation)
-
-* `expectation` Function
-
-Returns an expectation function that returns true if the expectation function evaluates to false.
+Returns a function that returns true if `propertyName` was found inside of it's argument and has a value equal to `value`.
 
 ## Expectation Iterators
 
@@ -146,13 +180,13 @@ Returns an expectation function that returns true if the expectation function ev
 
 * `expectation` Functions
 
-Returns an expectation function that returns true if **all** the expectation functions evaluate to true.
+Returns a function that returns true if **all** the `expectation` functions evaluate to true.
 
 ### expect.some(expectation_1, expectation_2, ... expectation_N)
 
 * `expectation` Functions
 
-Returns an expectation function that returns true if *any* of the expectation functions evaluate to true.
+Returns a function that returns true if **any** of the `expectation` functions evaluate to true.
 
 ## License - MIT
 
